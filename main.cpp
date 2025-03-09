@@ -13,10 +13,12 @@ void Close();
 int main(int argc, char* argv[]) {
 	if (InitData() == false)
 	{
+		std::cerr << "InitData failed!" << std::endl;
 		return -1;
 	}
 	if (LoadBackground() == false)
 	{
+		std :: cout << "Failed to load background: "<< IMG_GetError();
 		return -1;
 	}
 	bool is_quit = false;
@@ -44,15 +46,14 @@ bool InitData()
 	int ret = SDL_Init(SDL_INIT_VIDEO); // khởi tạo SDL
 	if (ret < 0) // nếu không thể khởi tạo SDL
 	{
-		return false;
-	}
-	else {
+		std::cerr << "SDL could not initialize! SDL Error: " << SDL_GetError() << std::endl;
 		return false;
 	}
 	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1"); // set chất lượng render
 	g_window = SDL_CreateWindow("Demon Hunter", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN); // tạo cửa sổ
 	if (g_window == NULL) // nếu cửa sổ bằng NULL
 	{
+		std::cerr << "Window could not be created! SDL Error: " << SDL_GetError() << std::endl;
 		success = false;
 	}
 	else
@@ -60,6 +61,7 @@ bool InitData()
 		g_screen = SDL_CreateRenderer(g_window, -1, SDL_RENDERER_ACCELERATED); // tạo renderer
 		if (g_screen == NULL) // nếu renderer bằng NULL
 		{
+			std::cerr << "Renderer could not be created! SDL Error: " << SDL_GetError() << std::endl;
 			success = false;
 		}
 		else
@@ -68,12 +70,14 @@ bool InitData()
 			int imgFlags = IMG_INIT_PNG; // set flag cho ảnh
 			if (!(IMG_Init(imgFlags) && imgFlags)) // nếu không thể khởi tạo ảnh
 			{
+				std::cerr << "SDL_image could not initialize! SDL_image Error: " << IMG_GetError() << std::endl;
 				success = false;
 			}
 		}
 	}
 	return success;
 }
+
 
 bool LoadBackground()
 {
