@@ -1,12 +1,9 @@
 ﻿#include"stdafx.h"
 #include"CommonFunc.h"
 #include"BaseObject.h"
-
-BaseObject g_background;
+#include"Game_map.h"
 
 bool InitData();
-
-bool LoadBackground();
 
 void Close();
 
@@ -16,11 +13,12 @@ int main(int argc, char* argv[]) {
 		std::cerr << "InitData failed!" << std::endl;
 		return -1;
 	}
-	if (LoadBackground() == false)
-	{
-		std :: cout << "Failed to load background: "<< IMG_GetError();
-		return -1;
-	}
+
+	GameMap game_map;
+	game_map.LoadMap("map/map01.dat");		//	load map
+
+	game_map.LoadTiles(g_screen);
+
 	bool is_quit = false;
 	while (!is_quit)
 	{
@@ -33,7 +31,9 @@ int main(int argc, char* argv[]) {
 		}
 		SDL_SetRenderDrawColor(g_screen, RENDER_DRAW_COLOR, RENDER_DRAW_COLOR, RENDER_DRAW_COLOR, RENDER_DRAW_COLOR); // set màu cho renderer
 		SDL_RenderClear(g_screen); // clear renderer
-		g_background.Render(g_screen, NULL); // render ảnh nền
+
+		game_map.DrawMap(g_screen);
+
 		SDL_RenderPresent(g_screen); // update renderer
 	}
 	Close();
@@ -79,19 +79,9 @@ bool InitData()
 }
 
 
-bool LoadBackground()
-{
-	bool ret = g_background.LoadImg("img//background.png", g_screen); // load ảnh nền
-	if (ret == false) // nếu không thể load ảnh
-	{
-		return false;
-	}
-	return true;
-}
 
 void Close()
 {
-	g_background.Free(); // giải phóng ảnh nền
 	SDL_DestroyRenderer(g_screen); // giải phóng renderer
 	g_screen = NULL; // gán NULL cho renderer
 	SDL_DestroyWindow(g_window); // giải phóng cửa sổ
