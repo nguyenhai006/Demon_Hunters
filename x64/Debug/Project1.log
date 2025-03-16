@@ -1,4 +1,4 @@
 ﻿  player.cpp
-D:\Project1\Project1\player.cpp(198,37): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Project1\Project1\player.cpp(199,37): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Project1\Project1\player.cpp(190,37): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Project1\Project1\player.cpp(191,37): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
   Project1.vcxproj -> D:\Project1\x64\Debug\Project1.exe

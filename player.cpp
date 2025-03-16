@@ -104,36 +104,28 @@ void player::HandleInputAction(SDL_Event events, SDL_Renderer* screen)
 		{
 			status_ = WALK_RIGHT;
 			input_type_.right_ = 1;
-			//input_type_.left_ = 0;
-			//input_type_.up_ = 0;
-			//input_type_.down_ = 0;
+			input_type_.left_ = 0;
 
 		}
 		break;
 		case SDLK_LEFT:
 		{
 			status_ = WALK_LEFT;
-			//input_type_.right_ = 0;
 			input_type_.left_ = 1;
-			//input_type_.up_ = 0;
-			//input_type_.down_ = 0;
+			input_type_.right_ = 0;
 		}
 		break;
 		case SDLK_UP:
 		{
 			
-			//input_type_.right_ = 0;
-			//input_type_.left_ = 0;
 			input_type_.up_ = 1;
-			//input_type_.down_ = 0;
+			input_type_.down_ = 0;
 		}
 		break;
 		case SDLK_DOWN:
 		{
-			//input_type_.right_ = 0;
-			//input_type_.left_ = 0;
-			//input_type_.up_ = 0;
 			input_type_.down_ = 1;
+			input_type_.up_ = 0;
 		}
 		break;
 		
@@ -197,6 +189,5 @@ void player::DoPlayer()
 	if (y_pos_ < 0) y_pos_ = 0;
 	if (x_pos_ > MAX_X) x_pos_ = MAX_X - width_frame_; 
 	if (y_pos_ > MAX_Y) y_pos_ = MAX_Y - height_frame_;
-
 
 }
