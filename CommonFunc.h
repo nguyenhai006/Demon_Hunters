@@ -24,17 +24,22 @@ const int COLOR_KEY_B = 180;
 
 const int RENDER_DRAW_COLOR = 255;
 
-#define TILE_SIZE 32 // kích thước của 1 ô
+#define TILE_SIZE 64 // kích thước của 1 ô
+#define BLANK_TILE 0
 
 #define MAX_MAP_X 57		// số ô theo chiều ngang
 #define MAX_MAP_Y 57		// số ô theo chiều dọc
 
-typedef struct Input {
+#define MAX_X 3648			// số pixel của map
+#define MAX_Y 3648
+
+
+typedef struct  {
 	int left_;
 	int right_;
 	int up_;
 	int down_;
-};
+}Input;
 
 typedef struct  {
 	int start_x_;	// vị trí bắt đầu theo chiều ngang

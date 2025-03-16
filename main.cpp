@@ -2,12 +2,19 @@
 #include"CommonFunc.h"
 #include"BaseObject.h"
 #include"Game_map.h"
+#include"player.h"
 
 bool InitData();
 
 void Close();
 
 int main(int argc, char* argv[]) {
+	const int FPS = 60;
+	const int frameDelay = 1000 / FPS;
+	 
+	Uint32 frameStart;
+	int frameTime;
+
 	if (InitData() == false)
 	{
 		std::cerr << "InitData failed!" << std::endl;
@@ -19,6 +26,11 @@ int main(int argc, char* argv[]) {
 
 	game_map.LoadTiles(g_screen);
 
+
+	player p_player;
+	p_player.LoadImg("img//walk_right.png", g_screen);
+	p_player.set_clips();
+
 	bool is_quit = false;
 	while (!is_quit)
 	{
@@ -28,11 +40,24 @@ int main(int argc, char* argv[]) {
 			{
 				is_quit = true;
 			}
+			p_player.HandleInputAction(g_event, g_screen);
 		}
+		frameStart = SDL_GetTicks();
+
 		SDL_SetRenderDrawColor(g_screen, RENDER_DRAW_COLOR, RENDER_DRAW_COLOR, RENDER_DRAW_COLOR, RENDER_DRAW_COLOR); // set màu cho renderer
 		SDL_RenderClear(g_screen); // clear renderer
 
 		game_map.DrawMap(g_screen);
+
+		p_player.DoPlayer();
+		p_player.Show(g_screen);
+
+		frameTime = SDL_GetTicks() - frameStart;
+
+		if (frameDelay > frameTime)
+		{
+			SDL_Delay(frameDelay - frameTime);
+		}
 
 		SDL_RenderPresent(g_screen); // update renderer
 	}

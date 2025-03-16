@@ -7,7 +7,6 @@ void GameMap::LoadMap(const char* name) // hàm load map
 	fopen_s(&fp, name, "rb"); // mở file ở chế độ đọc nhị phân
 	if (fp == NULL) // nếu không mở được file
 	{
-		std::cerr << "Không thể mở file map: " << name << std::endl;
 		return;
 	}
 
