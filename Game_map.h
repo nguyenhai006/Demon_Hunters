@@ -3,6 +3,7 @@
 
 #include"CommonFunc.h"
 #include"BaseObject.h"
+#include"player.h"
 
 #define MAX_TILES 20   //	số lượng tiles	
  
@@ -21,8 +22,7 @@ public:
 	~GameMap() { ; }
 	void LoadMap(const char* name);  // hàm load map	
 	void LoadTiles(SDL_Renderer* screen);  // hàm load tiles	
-	void DrawMap(SDL_Renderer* screen);  // hàm vẽ map	
-	Map getMap() const { return game_map_; };
+	void DrawMap(SDL_Renderer* screen,const SDL_Rect& camera);  // hàm vẽ map	
 private:
 	Map game_map_;	 // biến lưu trữ thông tin map
 	TileMat tile_mat[MAX_TILES];	// mảng lưu trữ các tiles

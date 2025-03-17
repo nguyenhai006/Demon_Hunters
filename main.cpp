@@ -11,7 +11,6 @@ void Close();
 int main(int argc, char* argv[]) {
 	const int FPS = 60;
 	const int frameDelay = 1000 / FPS;
-	 
 	Uint32 frameStart;
 	int frameTime;
 
@@ -47,10 +46,14 @@ int main(int argc, char* argv[]) {
 		SDL_SetRenderDrawColor(g_screen, RENDER_DRAW_COLOR, RENDER_DRAW_COLOR, RENDER_DRAW_COLOR, RENDER_DRAW_COLOR); // set màu cho renderer
 		SDL_RenderClear(g_screen); // clear renderer
 
-		game_map.DrawMap(g_screen);
+		game_map.DrawMap(g_screen, p_player.GetCamera());
+
+		
 
 		p_player.DoPlayer();
+
 		p_player.Show(g_screen);
+		
 
 		frameTime = SDL_GetTicks() - frameStart;
 

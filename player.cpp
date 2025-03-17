@@ -3,6 +3,7 @@
 #include"player.h"
 #include<cmath>
 
+
 player::player()
 {
 	frame_ = 0;
@@ -83,8 +84,8 @@ void player::Show(SDL_Renderer* des)
 		frame_ = 0;
 	}
 
-	rect_.x = static_cast<int>(round(x_pos_));
-	rect_.y = static_cast<int>(round(y_pos_));
+	rect_.x = static_cast<int>(round(x_pos_ - camera.x));
+	rect_.y = static_cast<int>(round(y_pos_ - camera.y));
 
 	SDL_Rect* current_clip = &frame_clip_[frame_];
 
@@ -163,6 +164,9 @@ void player::HandleInputAction(SDL_Event events, SDL_Renderer* screen)
 	
 }
 
+SDL_Rect player::camera = { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT };
+
+
 void player::DoPlayer()
 {
 	float dirX = 0.0f;
@@ -189,5 +193,19 @@ void player::DoPlayer()
 	if (y_pos_ < 0) y_pos_ = 0;
 	if (x_pos_ > MAX_X) x_pos_ = MAX_X - width_frame_; 
 	if (y_pos_ > MAX_Y) y_pos_ = MAX_Y - height_frame_;
+	UpdateCamera();
 
 }
+
+void player::UpdateCamera()
+{
+	camera.x = static_cast<int>(x_pos_ + width_frame_ / 2 - SCREEN_WIDTH / 2);
+	camera.y = static_cast<int>(y_pos_ + height_frame_ / 2 - SCREEN_HEIGHT / 2);
+
+	// Giới hạn camera
+	if (camera.x < 0) camera.x = 0;
+	if (camera.y < 0) camera.y = 0;
+	if (camera.x > MAX_X - SCREEN_WIDTH) camera.x = MAX_X - SCREEN_WIDTH;
+	if (camera.y > MAX_Y - SCREEN_HEIGHT) camera.y = MAX_Y - SCREEN_HEIGHT;
+}
+

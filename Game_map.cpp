@@ -1,5 +1,6 @@
 ﻿#include"stdafx.h"
 #include"Game_map.h"
+#include"CommonFunc.h"
 
 void GameMap::LoadMap(const char* name) // hàm load map
 {
@@ -66,8 +67,36 @@ void GameMap::LoadTiles(SDL_Renderer* screen) // hàm load tiles
 	
 }
 
+void GameMap::DrawMap(SDL_Renderer* screen, const SDL_Rect& camera)
+{
+	int start_x = camera.x / TILE_SIZE;
+	int start_y = camera.y / TILE_SIZE;
 
-void GameMap::DrawMap(SDL_Renderer* screen)
+	int end_x = (camera.x + SCREEN_WIDTH) / TILE_SIZE + 1;
+	int end_y = (camera.y + SCREEN_HEIGHT) / TILE_SIZE + 1;
+
+	for (int i = start_y; i < end_y; i++)
+	{
+		for (int j = start_x; j < end_x; j++)
+		{
+			if (i >= 0 && i < MAX_MAP_Y && j >= 0 && j < MAX_MAP_X)
+			{
+				int val = game_map_.tile[i][j];
+				if (val > 0)
+				{
+					int render_x = j * TILE_SIZE - camera.x;
+					int render_y = i * TILE_SIZE - camera.y;
+
+					tile_mat[val].SetRect(render_x, render_y);
+					tile_mat[val].Render(screen);
+				}
+			}
+		}
+	}
+}
+
+
+/*void GameMap::DrawMap(SDL_Renderer* screen, SDL_Rect& camera)
 {
 	int x1 = 0;
 	int x2 = 0;
@@ -103,4 +132,4 @@ void GameMap::DrawMap(SDL_Renderer* screen)
 		}
 		map_y++;
 	}
-}
+}*/

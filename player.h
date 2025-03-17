@@ -18,12 +18,16 @@ public:
 		WALK_LEFT = 1,
 	};
 
+
 	bool LoadImg(std::string path, SDL_Renderer* screen);
 	void Show(SDL_Renderer* des);	//	hàm hiển thị	
 	void HandleInputAction(SDL_Event events, SDL_Renderer* screen);	//	hàm xử lý sự kiện
 	void set_clips();
 	
 	void DoPlayer();
+	void UpdateCamera();
+	SDL_Rect GetCamera() const { return camera; };
+
 
 private:
 
@@ -32,6 +36,8 @@ private:
 
 	int width_frame_;
 	int height_frame_;
+
+	static SDL_Rect camera;
 
 	SDL_Rect frame_clip_[8];
 	Input input_type_;
