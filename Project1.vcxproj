@@ -131,7 +131,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BaseObject.cpp" />
+    <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="CommonFunc.cpp" />
+    <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Game_map.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="player.cpp" />
@@ -140,8 +142,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseObject.h" />
+    <ClInclude Include="Bullet.h" />
     <ClInclude Include="CommonFunc.h" />
     <ClInclude Include="CommonFunction.h" />
+    <ClInclude Include="Enemy.h" />
     <ClInclude Include="Game_map.h" />
     <ClInclude Include="ImpTimer.h" />
     <ClInclude Include="player.h" />

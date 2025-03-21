@@ -1,7 +1,10 @@
 ﻿
 #include "stdafx.h"
 #include"player.h"
-#include<cmath>
+#include"CommonFunc.h"
+
+#define BULLET_SPAWN_OFFSET 0.6
+
 
 
 player::player()
@@ -13,7 +16,7 @@ player::player()
 	height_frame_ = 0;
 	status_ = -1;
 	input_type_ = { 0 };
-	for (int i = 0; i < 8; i++)
+	for (int i = 0; i < animIndex; i++)
 	{
 		frame_clip_[i] = { 0,0,0,0 };
 	}
@@ -30,7 +33,7 @@ bool player::LoadImg(std::string path, SDL_Renderer* screen)
 
 	if (ret)
 	{
-		width_frame_ = rect_.w / 8;
+		width_frame_ = rect_.w / animIndex;
 		height_frame_ = rect_.h;
 	}
 	return ret;
@@ -41,7 +44,7 @@ void player::set_clips()
 	if (width_frame_ > 0 && height_frame_ > 0)
 	{
 
-		for (int i = 0; i < 8; i++)
+		for (int i = 0; i < animIndex; i++)
 		{
 			frame_clip_[i].x = i * width_frame_;
 			frame_clip_[i].y = 0;
@@ -79,7 +82,7 @@ void player::Show(SDL_Renderer* des)
 		frame_ = 0;
 	}
 
-	if (frame_ >= 8)
+	if (frame_ >= animIndex)
 	{
 		frame_ = 0;
 	}
@@ -158,7 +161,25 @@ void player::HandleInputAction(SDL_Event events, SDL_Renderer* screen)
 			input_type_.down_ = 0;
 		}
 		break;
-		
+		case SDLK_1:
+			Bullet* p_bullet = new Bullet();
+			p_bullet->LoadImg("img//bullet.png", screen);
+
+			p_bullet->SetRect(this->rect_.x + width_frame_ / 2, rect_.y + height_frame_ * BULLET_SPAWN_OFFSET);
+
+			float bullet_angle = angle_;
+			float speed = BULLET_SPEED;
+
+			float velX = cos(bullet_angle) * speed;
+			float velY = sin(bullet_angle) * speed;
+
+			p_bullet->set_x_val(velX); \
+			p_bullet->set_y_val(velY);
+			p_bullet->set_angle(bullet_angle);
+
+			p_bullet->set_is_move(true);
+
+			p_bullet_list_.push_back(p_bullet);
 		}
 	}
 	
@@ -182,6 +203,7 @@ void player::DoPlayer()
 	{
 		dirX /= length;
 		dirY /= length;
+		angle_ = atan2(dirY, dirX);
 	}
 
 	x_pos_ += dirX * PLAYER_SPEED;
@@ -207,5 +229,33 @@ void player::UpdateCamera()
 	if (camera.y < 0) camera.y = 0;
 	if (camera.x > MAX_X - SCREEN_WIDTH) camera.x = MAX_X - SCREEN_WIDTH;
 	if (camera.y > MAX_Y - SCREEN_HEIGHT) camera.y = MAX_Y - SCREEN_HEIGHT;
+}
+
+void player::HandleBullet(SDL_Renderer* des)
+{
+	for (int i = 0; i < p_bullet_list_.size(); i++)
+	{
+		Bullet* p_bullet = p_bullet_list_.at(i);
+		if (p_bullet != NULL)
+		{
+			if (!p_bullet->get_texture()) {		// load lại ảnh nếu chưa được
+				p_bullet->LoadImg("img//bullet.png", des);
+			}
+			if (p_bullet->get_is_move() == true)
+			{
+				p_bullet->HandleMove(SCREEN_WIDTH, SCREEN_HEIGHT);
+				p_bullet->Render(des);
+			}
+			else
+			{
+				p_bullet_list_.erase(p_bullet_list_.begin() + i);
+				if (p_bullet != NULL)
+				{
+					delete p_bullet;
+					p_bullet = NULL;
+				}
+			}
+		}
+	}
 }
 

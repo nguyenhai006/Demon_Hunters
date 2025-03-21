@@ -2,8 +2,10 @@
 #ifndef PLAYER_H_
 #define PLAYER_H_
 
+
 #include"CommonFunc.h"
 #include"BaseObject.h"
+#include "Bullet.h"
 
 #define PLAYER_SPEED 3
 
@@ -27,9 +29,18 @@ public:
 	void DoPlayer();
 	void UpdateCamera();
 	SDL_Rect GetCamera() const { return camera; };
+	
+	void set_bullet_list(std::vector<Bullet*> bullet_list)
+	{
+		p_bullet_list_ = bullet_list;
+	}
+	std::vector<Bullet*> get_bullet_list() const { return p_bullet_list_; };
 
+	void HandleBullet(SDL_Renderer* des);
 
 private:
+
+	std::vector<Bullet*> p_bullet_list_;		//mảng lưu trữ đạn
 
 	float x_pos_;
 	float y_pos_;
@@ -44,6 +55,7 @@ private:
 	int frame_;
 	int status_;
 
+	float angle_;   //góc đạn bắn
 
 };
 

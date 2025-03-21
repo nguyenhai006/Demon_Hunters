@@ -49,7 +49,7 @@ int main(int argc, char* argv[]) {
 		game_map.DrawMap(g_screen, p_player.GetCamera());
 
 		
-
+		p_player.HandleBullet(g_screen);
 		p_player.DoPlayer();
 
 		p_player.Show(g_screen);
