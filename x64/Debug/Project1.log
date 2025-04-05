@@ -1,11 +1,2 @@
-﻿  Bullet.cpp
-  Game_map.cpp
-  main.cpp
-  player.cpp
-D:\Project1\Project1\player.cpp(168,64): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
-D:\Project1\Project1\player.cpp(176,24): warning C4244: 'argument': conversion from 'float' to 'const int', possible loss of data
-D:\Project1\Project1\player.cpp(177,24): warning C4244: 'argument': conversion from 'float' to 'const int', possible loss of data
-D:\Project1\Project1\player.cpp(216,37): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Project1\Project1\player.cpp(217,37): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  Generating Code...
+﻿  main.cpp
   Project1.vcxproj -> D:\Project1\x64\Debug\Project1.exe

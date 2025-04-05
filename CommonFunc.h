@@ -1,7 +1,8 @@
 ﻿#ifndef COMMON_FUNCTION_H_
 #define COMMON_FUNCTION_H_	
 
-
+#include<cstdlib>
+#include<ctime>
 #include<cmath>
 #include<vector>
 #include<string>
@@ -10,6 +11,7 @@
 #include<iostream>
 #include<SDL_mixer.h>
 #include<SDL_ttf.h>
+#include <algorithm>
 
 static SDL_Window* g_window = NULL;	
 static SDL_Renderer* g_screen = NULL;
@@ -54,5 +56,10 @@ typedef struct  {
 	int tile[MAX_MAP_Y][MAX_MAP_X];	// mảng lưu trữ thông tin các ô
 	const char* file_name_;	// tên file chứa thông tin map
 } Map;
+
+namespace SDLCommonFunc
+{
+	bool CheckCollision(const SDL_Rect& object1, const SDL_Rect& object2);
+}
 
 #endif // !COMMON_FUNCTION_H_

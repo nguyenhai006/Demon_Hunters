@@ -137,7 +137,7 @@
     <ClCompile Include="Game_map.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="player.cpp" />
-    <ClCompile Include="ImpTimer.cpp" />
+    <ClCompile Include="SlimeAndBat.cpp" />
     <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -147,8 +147,8 @@
     <ClInclude Include="CommonFunction.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Game_map.h" />
-    <ClInclude Include="ImpTimer.h" />
     <ClInclude Include="player.h" />
+    <ClInclude Include="SlimeAndBat.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

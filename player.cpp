@@ -3,7 +3,7 @@
 #include"player.h"
 #include"CommonFunc.h"
 
-#define BULLET_SPAWN_OFFSET 0.6
+#define BULLET_SPAWN_OFFSET 0.5
 
 
 
@@ -20,6 +20,7 @@ player::player()
 	{
 		frame_clip_[i] = { 0,0,0,0 };
 	}
+	player_dmg = 30;
 }
 
 player::~player()
@@ -73,22 +74,27 @@ void player::Show(SDL_Renderer* des)
 		}	
 	}
 
-	if (input_type_.left_ == 1 || input_type_.right_ == 1 || input_type_.up_ == 1 || input_type_.down_ == 1)
+	Uint32 current_time = SDL_GetTicks();
+
+	if (current_time > player_lastFrameTime + player_frameDelay)
 	{
-		frame_++;
-	}
-	else
-	{
-		frame_ = 0;
+		if (input_type_.left_ == 1 || input_type_.right_ == 1 || input_type_.up_ == 1 || input_type_.down_ == 1)
+		{
+			frame_++;
+		}
+		else
+		{
+			frame_ = 0;
+		}
+
+		if (frame_ >= animIndex)
+		{
+			frame_ = 0;
+		}
 	}
 
-	if (frame_ >= animIndex)
-	{
-		frame_ = 0;
-	}
-
-	rect_.x = static_cast<int>(round(x_pos_ - camera.x));
-	rect_.y = static_cast<int>(round(y_pos_ - camera.y));
+	rect_.x = x_pos_ - camera.x;
+	rect_.y = y_pos_ - camera.y;
 
 	SDL_Rect* current_clip = &frame_clip_[frame_];
 
@@ -173,7 +179,7 @@ void player::HandleInputAction(SDL_Event events, SDL_Renderer* screen)
 			float velX = cos(bullet_angle) * speed;
 			float velY = sin(bullet_angle) * speed;
 
-			p_bullet->set_x_val(velX); \
+			p_bullet->set_x_val(velX); 
 			p_bullet->set_y_val(velY);
 			p_bullet->set_angle(bullet_angle);
 
@@ -213,16 +219,16 @@ void player::DoPlayer()
 	// giới hạn nhận vật trong map
 	if (x_pos_ < 0) x_pos_ = 0;
 	if (y_pos_ < 0) y_pos_ = 0;
-	if (x_pos_ > MAX_X) x_pos_ = MAX_X - width_frame_; 
-	if (y_pos_ > MAX_Y) y_pos_ = MAX_Y - height_frame_;
+	if (x_pos_ + width_frame_ > MAX_X) x_pos_ = MAX_X - width_frame_; 
+	if (y_pos_ + height_frame_ > MAX_Y) y_pos_ = MAX_Y - height_frame_;
 	UpdateCamera();
 
 }
 
 void player::UpdateCamera()
 {
-	camera.x = static_cast<int>(x_pos_ + width_frame_ / 2 - SCREEN_WIDTH / 2);
-	camera.y = static_cast<int>(y_pos_ + height_frame_ / 2 - SCREEN_HEIGHT / 2);
+	camera.x = x_pos_ + width_frame_ / 2 - SCREEN_WIDTH / 2;
+	camera.y = y_pos_ + height_frame_ / 2 - SCREEN_HEIGHT / 2;
 
 	// Giới hạn camera
 	if (camera.x < 0) camera.x = 0;
@@ -255,6 +261,21 @@ void player::HandleBullet(SDL_Renderer* des)
 					p_bullet = NULL;
 				}
 			}
+		}
+	}
+}
+
+void player::RemoveBullet(const int& ind)
+{
+	if (p_bullet_list_.size() > 0 && p_bullet_list_.size() > ind)
+	{
+		Bullet* p_bullet = p_bullet_list_.at(ind);
+		p_bullet_list_.erase(p_bullet_list_.begin() + ind);
+
+		if (p_bullet)
+		{
+			delete p_bullet;
+			p_bullet = NULL;
 		}
 	}
 }

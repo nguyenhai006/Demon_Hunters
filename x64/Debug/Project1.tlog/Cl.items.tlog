@@ -1,8 +1,9 @@
 D:\Project1\Project1\BaseObject.cpp;D:\Project1\Project1\x64\Debug\BaseObject.obj
 D:\Project1\Project1\Bullet.cpp;D:\Project1\Project1\x64\Debug\Bullet.obj
 D:\Project1\Project1\CommonFunc.cpp;D:\Project1\Project1\x64\Debug\CommonFunc.obj
+D:\Project1\Project1\Enemy.cpp;D:\Project1\Project1\x64\Debug\Enemy.obj
 D:\Project1\Project1\Game_map.cpp;D:\Project1\Project1\x64\Debug\Game_map.obj
 D:\Project1\Project1\main.cpp;D:\Project1\Project1\x64\Debug\main.obj
 D:\Project1\Project1\player.cpp;D:\Project1\Project1\x64\Debug\player.obj
-D:\Project1\Project1\ImpTimer.cpp;D:\Project1\Project1\x64\Debug\ImpTimer.obj
+D:\Project1\Project1\SlimeAndBat.cpp;D:\Project1\Project1\x64\Debug\SlimeAndBat.obj
 D:\Project1\Project1\stdafx.cpp;D:\Project1\Project1\x64\Debug\stdafx.obj

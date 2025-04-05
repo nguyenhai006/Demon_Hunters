@@ -16,8 +16,8 @@ public:
 	~player();
 
 	enum WalkType {
-		WALK_RIGHT = 0,
-		WALK_LEFT = 1,
+		WALK_RIGHT = 10,
+		WALK_LEFT = 11,
 	};
 
 
@@ -28,7 +28,7 @@ public:
 	
 	void DoPlayer();
 	void UpdateCamera();
-	SDL_Rect GetCamera() const { return camera; };
+	SDL_Rect GetCamera() const { return camera; }
 	
 	void set_bullet_list(std::vector<Bullet*> bullet_list)
 	{
@@ -37,6 +37,10 @@ public:
 	std::vector<Bullet*> get_bullet_list() const { return p_bullet_list_; };
 
 	void HandleBullet(SDL_Renderer* des);
+
+	void GetPosition(float& x, float& y) { x = x_pos_; y = y_pos_; }
+
+	void RemoveBullet(const int& ind);
 
 private:
 
@@ -50,12 +54,19 @@ private:
 
 	static SDL_Rect camera;
 
-	SDL_Rect frame_clip_[8];
+	Uint32 player_lastFrameTime = 0;
+	const Uint32 player_frameDelay = 300;
+
+	SDL_Rect frame_clip_[animIndex];
 	Input input_type_;
 	int frame_;
 	int status_;
 
 	float angle_;   //góc đạn bắn
+
+	int health_player;			//máu người chơi
+
+	int player_dmg;
 
 };
 
