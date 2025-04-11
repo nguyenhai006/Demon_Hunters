@@ -1,2 +1,26 @@
-﻿  main.cpp
+﻿  BaseObject.cpp
+  Bullet.cpp
+  CommonFunc.cpp
+  Enemy.cpp
+D:\Project1\Project1\Enemy.cpp(53,22): warning C4566: character represented by universal-character-name '\u1ED7' cannot be represented in the current code page (1252)
+D:\Project1\Project1\Enemy.cpp(53,22): warning C4566: character represented by universal-character-name '\u1EA3' cannot be represented in the current code page (1252)
+D:\Project1\Project1\Enemy.cpp(82,24): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Project1\Project1\Enemy.cpp(83,24): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Project1\Project1\Enemy.cpp(118,32): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
+D:\Project1\Project1\Enemy.cpp(119,32): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
+  Game_map.cpp
+  main.cpp
+  player.cpp
+D:\Project1\Project1\player.cpp(109,19): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Project1\Project1\player.cpp(110,19): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Project1\Project1\player.cpp(187,64): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
+D:\Project1\Project1\player.cpp(195,24): warning C4244: 'argument': conversion from 'float' to 'const int', possible loss of data
+D:\Project1\Project1\player.cpp(196,24): warning C4244: 'argument': conversion from 'float' to 'const int', possible loss of data
+D:\Project1\Project1\player.cpp(232,52): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Project1\Project1\player.cpp(233,53): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Project1\Project1\player.cpp(240,39): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Project1\Project1\player.cpp(241,40): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  SlimeAndBat.cpp
+  stdafx.cpp
+  Generating Code...
   Project1.vcxproj -> D:\Project1\x64\Debug\Project1.exe

@@ -4,6 +4,7 @@
 
 Slime::Slime() : Enemy(8) {
     speed_ = 0.7f;
+    health_ = 15;
 }
 
 void Slime::Move() {
@@ -24,6 +25,7 @@ bool Slime::LoadImgEnemy(std::string path, SDL_Renderer* screen) {
 
 Bat::Bat() : Enemy(4) {
     speed_ = 1.0f;
+    health_ = 25;
 }
 
 void Bat::Move() {

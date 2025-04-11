@@ -21,12 +21,15 @@ player::player()
 		frame_clip_[i] = { 0,0,0,0 };
 	}
 	player_dmg = 30;
+	health_player = 50;
 }
 
 player::~player()
 {
 
 }
+
+SDL_Rect player::camera = { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT };
 
 bool player::LoadImg(std::string path, SDL_Renderer* screen)
 {
@@ -38,6 +41,16 @@ bool player::LoadImg(std::string path, SDL_Renderer* screen)
 		height_frame_ = rect_.h;
 	}
 	return ret;
+}
+
+SDL_Rect player::GetRectFrame()
+{
+	SDL_Rect rect;
+	rect.x = rect_.x;
+	rect.y = rect_.y;
+	rect.w = width_frame_;
+	rect.h = height_frame_;
+	return rect;
 }
 
 void player::set_clips()
@@ -191,9 +204,6 @@ void player::HandleInputAction(SDL_Event events, SDL_Renderer* screen)
 	
 }
 
-SDL_Rect player::camera = { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT };
-
-
 void player::DoPlayer()
 {
 	float dirX = 0.0f;
@@ -280,3 +290,12 @@ void player::RemoveBullet(const int& ind)
 	}
 }
 
+void player::TakeDamage(int dmg)
+{
+	health_player -= dmg;
+}
+
+bool player::IsDead()
+{
+	return health_player <= 0;
+}

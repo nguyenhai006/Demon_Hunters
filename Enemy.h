@@ -28,11 +28,13 @@ public:
 	virtual void Move() = 0;
 	void TakeDamage(int dmg);
 	bool IsDead();
-	void SetHp(int hp) { health_ = hp; }
 	
 	virtual bool LoadImgEnemy(std::string path, SDL_Renderer* screen) = 0;
 	virtual void ShowEnemy(SDL_Renderer* des, const SDL_Rect& camera) = 0;	//	hàm hiển thị
 	virtual void set_clipsEnemy() = 0;
+
+	virtual int GetDamage() const { return 0; }
+	SDL_Rect GetRectFrame();
 
 	int get_width_frame() const { return width_frame_; }
 	int get_height_frame() const { return height_frame_; }
@@ -40,8 +42,8 @@ public:
 	void SetType(const int type) { enemy_type_ = type;}
 	virtual int GetType() const = 0;
 
-	void SpawnEnemies(std::vector<Enemy*>& enemies, SDL_Renderer* renderer, int spawn_count, int enemy_type);
-	void UpdateSpawnEnemies(std::vector<Enemy*>& enemies, SDL_Renderer* renderer, Uint32& last_spawn_time, Uint32 spawn_delay, Uint32 start_time, int spawn_count, int enemy_type);
+	void SpawnEnemies(std::vector<Enemy*>& enemies, SDL_Renderer* renderer, const SDL_Rect& camera, int spawn_count, int enemy_type);
+	void UpdateSpawnEnemies(std::vector<Enemy*>& enemies, SDL_Renderer* renderer, Uint32& last_spawn_time, Uint32 spawn_delay, Uint32 start_time, const SDL_Rect& camera, int spawn_count, int enemy_type);
 
 private:	
 	float enemy_x_, enemy_y_;								//vị trí của quái

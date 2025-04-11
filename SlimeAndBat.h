@@ -15,6 +15,7 @@ public:
 	void ShowEnemy(SDL_Renderer* des, const SDL_Rect& camera) override;
 	int GetType() const override { return 0; }
 	bool LoadImgEnemy(std::string path, SDL_Renderer* screen) override;
+	int GetDamage() const { return 10; }
 };
 
 class Bat : public Enemy
@@ -26,6 +27,7 @@ public:
 	void ShowEnemy(SDL_Renderer* des, const SDL_Rect& camera) override;
 	int GetType() const override { return 1; }
 	bool LoadImgEnemy(std::string path, SDL_Renderer* screen) override;
+	int GetDamage() const { return 15; }
 };
 
 #endif

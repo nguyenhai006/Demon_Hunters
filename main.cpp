@@ -74,15 +74,18 @@ int main(int argc, char* argv[]) {
 		float player_x, player_y;
 		p_player.GetPosition(player_x, player_y);					//lấy vị trí của người chơi
 
-		if (current_time - lastSlimeSpawnTime >= spawnInterval) {
-			slime->UpdateSpawnEnemies(enemy_list, g_screen, lastSlimeSpawnTime, spawnInterval, lastTime, spawn_count, 0);
-			lastSlimeSpawnTime = current_time;
-		}
+		if (enemy_list.size() < 25)
+		{
+			if (current_time - lastSlimeSpawnTime >= spawnInterval) {
+				slime->UpdateSpawnEnemies(enemy_list, g_screen, lastSlimeSpawnTime, spawnInterval, lastTime, p_player.GetCamera(), spawn_count, 0);
+				lastSlimeSpawnTime = current_time;
+			}
 
-		if (current_time > lastTime + 180000) {  // 180000 ms = 3 phút
-			if (current_time - lastBatSpawnTime >= spawnInterval * 2) {
-				bat->UpdateSpawnEnemies(enemy_list, g_screen, lastBatSpawnTime, spawnInterval * 2, lastTime, spawn_count, 1);
-				lastBatSpawnTime = current_time;
+			if (current_time > lastTime + 180000) {  // 180000 ms = 3 phút
+				if (current_time - lastBatSpawnTime >= spawnInterval * 2) {
+					bat->UpdateSpawnEnemies(enemy_list, g_screen, lastBatSpawnTime, spawnInterval * 2, lastTime, p_player.GetCamera(), spawn_count, 1);
+					lastBatSpawnTime = current_time;
+				}
 			}
 		}
 
@@ -97,6 +100,26 @@ int main(int argc, char* argv[]) {
 				p_enemy->SetTarget(player_x, player_y);
 				p_enemy->Move();
 
+				SDL_Rect rect_player = p_player.GetRectFrame();
+				SDL_Rect rect_enemy = p_enemy->GetRectFrame();
+				bool bCol1 = SDLCommonFunc::CheckCollision(rect_player, rect_enemy);
+				int enemy_dmg = p_enemy->GetDamage();
+				if (bCol1)
+				{
+					Uint32 now = SDL_GetTicks();
+					if (now - p_player.GetlastHitTime() >= p_player.GetInvincibleTime())
+					{
+						p_player.TakeDamage(enemy_dmg);
+						p_player.SetlastHitTime(now);
+						if (p_player.IsDead())
+						{
+							p_enemy->Free();
+							Close();
+							SDL_Quit();
+							return 0;
+						}
+					}
+				}
 			}
 		}
 		std::vector<Bullet*> bullet_arr = p_player.get_bullet_list();
@@ -110,11 +133,7 @@ int main(int argc, char* argv[]) {
 					Enemy* obj_enemy = enemy_list.at(i);
 					if (obj_enemy != NULL)
 					{
-						SDL_Rect eRect;
-						eRect.x = obj_enemy->GetRect().x;
-						eRect.y = obj_enemy->GetRect().y;
-						eRect.w = obj_enemy->get_width_frame();
-						eRect.h = obj_enemy->get_height_frame();
+						SDL_Rect eRect = obj_enemy->GetRectFrame();
 
 						SDL_Rect bRect = p_bullet->GetRect();
 
@@ -123,8 +142,13 @@ int main(int argc, char* argv[]) {
 						if (bCol)
 						{
 							p_player.RemoveBullet(bl);
-							obj_enemy->Free();
-							enemy_list.erase(enemy_list.begin() + i);
+							obj_enemy->TakeDamage(playerdamage);
+							if (obj_enemy->IsDead())
+							{
+								obj_enemy->Free();
+								delete obj_enemy;
+								enemy_list.erase(enemy_list.begin() + i);
+							}
 						}
 					}
 				}

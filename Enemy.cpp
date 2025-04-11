@@ -35,6 +35,16 @@ void Enemy::Move()
 
 }
 
+SDL_Rect Enemy::GetRectFrame()
+{
+    SDL_Rect rect;
+    rect.x = rect_.x;
+    rect.y = rect_.y;
+    rect.w = width_frame_;
+    rect.h = height_frame_;
+    return rect;
+}
+
 bool Enemy::LoadImgEnemy(std::string path, SDL_Renderer* screen)
 {
     bool ret = BaseObject::LoadImg(path, screen);
@@ -92,20 +102,18 @@ void Enemy::ShowEnemy(SDL_Renderer* des, const SDL_Rect& camera)
     SDL_RenderCopy(des, p_object_, current_clip, &renderQuad);
 }
 
-void Enemy::SpawnEnemies(std::vector<Enemy*>& enemies, SDL_Renderer* renderer, int spawn_count, int enemy_type) {
+void Enemy::SpawnEnemies(std::vector<Enemy*>& enemies, SDL_Renderer* renderer, const SDL_Rect& camera, int spawn_count, int enemy_type) {
     for (int i = 0; i < spawn_count; ++i) {
         Enemy* new_enemy = nullptr;
 
         if (enemy_type == 0) {
             new_enemy = new Slime(); // Tạo Slime
-            new_enemy->SetHp(3);     // Set HP cho Slime
         }
         else {
             new_enemy = new Bat();   // Tạo Bat
-            new_enemy->SetHp(5);     // Set HP cho Bat
         }
-        int spawn_x = (rand() % (SCREEN_WIDTH - 100)) + 50;
-        int spawn_y = (rand() % (SCREEN_HEIGHT - 100)) + 50;
+        int spawn_x = (rand() % (SCREEN_WIDTH - 100)) + 50 + camera.x;                 // quái spawn trong màn hình
+        int spawn_y = (rand() % (SCREEN_HEIGHT - 100)) + 50 + camera.y;
 
         new_enemy->set_enemy_x(spawn_x);
         new_enemy->set_enemy_y(spawn_y);
@@ -129,12 +137,13 @@ void Enemy::SpawnEnemies(std::vector<Enemy*>& enemies, SDL_Renderer* renderer, i
     }
 }
 
-void Enemy::UpdateSpawnEnemies(std::vector<Enemy*>& enemies, SDL_Renderer* renderer, Uint32& last_spawn_time, Uint32 spawn_delay, Uint32 start_time, int spawn_count, int enemy_type) {
+void Enemy::UpdateSpawnEnemies(std::vector<Enemy*>& enemies, SDL_Renderer* renderer, Uint32& last_spawn_time, Uint32 spawn_delay, Uint32 start_time, const SDL_Rect& camera, int spawn_count, int enemy_type) {
     Uint32 current_time = SDL_GetTicks();
     Uint32 elapsed_time = (current_time - start_time) / 1000;
-    spawn_count = std::min(static_cast<Uint32>(25), 5 + elapsed_time / 10);
+
+    spawn_count = 5 + elapsed_time / 180000;            //cứ sau 3' thì tăng lượng quái spawn lên            
     if (current_time > last_spawn_time + spawn_delay) {
-        SpawnEnemies(enemies, renderer, spawn_count, enemy_type);
+        SpawnEnemies(enemies, renderer,camera, spawn_count, enemy_type);
         last_spawn_time = current_time;
     }
 }

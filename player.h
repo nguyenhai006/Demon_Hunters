@@ -27,6 +27,11 @@ public:
 	void set_clips();
 	
 	void DoPlayer();
+	SDL_Rect GetRectFrame();
+
+	void TakeDamage(int dmg);
+	bool IsDead();
+
 	void UpdateCamera();
 	SDL_Rect GetCamera() const { return camera; }
 	
@@ -41,6 +46,10 @@ public:
 	void GetPosition(float& x, float& y) { x = x_pos_; y = y_pos_; }
 
 	void RemoveBullet(const int& ind);
+
+	Uint32 GetlastHitTime() { return lastHitTime; }
+	void SetlastHitTime(Uint32 time) { lastHitTime = time; }
+	Uint32 GetInvincibleTime() const { return invincibleDuration; }
 
 private:
 
@@ -67,6 +76,9 @@ private:
 	int health_player;			//máu người chơi
 
 	int player_dmg;
+
+	Uint32 lastHitTime = 0;
+	const Uint32 invincibleDuration = 3000;
 
 };
 
