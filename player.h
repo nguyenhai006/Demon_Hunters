@@ -43,13 +43,21 @@ public:
 
 	void HandleBullet(SDL_Renderer* des);
 
+	void SetMapXY(float map_x, float map_y) { x_pos_ = map_x; y_pos_ = map_y; }
 	void GetPosition(float& x, float& y) { x = x_pos_; y = y_pos_; }
 
 	void RemoveBullet(const int& ind);
 
+	int PlayerWidth()  const { return width_frame_; }
+	int PlayerHeight() const {return height_frame_;}
+
 	Uint32 GetlastHitTime() { return lastHitTime; }
 	void SetlastHitTime(Uint32 time) { lastHitTime = time; }
 	Uint32 GetInvincibleTime() const { return invincibleDuration; }
+
+	void RenderHeal(SDL_Renderer* render);
+
+	void reset();
 
 private:
 
@@ -57,7 +65,6 @@ private:
 
 	float x_pos_;
 	float y_pos_;
-
 	int width_frame_;
 	int height_frame_;
 
@@ -74,11 +81,12 @@ private:
 	float angle_;   //góc đạn bắn
 
 	int health_player;			//máu người chơi
+	int current_health;
 
 	int player_dmg;
 
 	Uint32 lastHitTime = 0;
-	const Uint32 invincibleDuration = 3000;
+	const Uint32 invincibleDuration = 5000;
 
 };
 

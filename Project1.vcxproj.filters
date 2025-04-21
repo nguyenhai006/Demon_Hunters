@@ -72,4 +72,7 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Font Include="C:\Users\DELL\OneDrive - vnu.edu.vn\Documents\HARNGTON.TTF" />
+  </ItemGroup>
 </Project>

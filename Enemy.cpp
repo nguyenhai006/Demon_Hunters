@@ -20,6 +20,7 @@ Enemy::~Enemy() {
     }
 }
 
+//Hàm di chuyển của quái
 void Enemy::Move()
 {
     float dx = target_x_ - enemy_x_;
@@ -35,6 +36,8 @@ void Enemy::Move()
 
 }
 
+
+//Hàm lấy kích thước ảnh quái
 SDL_Rect Enemy::GetRectFrame()
 {
     SDL_Rect rect;
@@ -45,6 +48,8 @@ SDL_Rect Enemy::GetRectFrame()
     return rect;
 }
 
+
+//Hàm load ảnh quái
 bool Enemy::LoadImgEnemy(std::string path, SDL_Renderer* screen)
 {
     bool ret = BaseObject::LoadImg(path, screen);
@@ -62,6 +67,7 @@ bool Enemy::LoadImgEnemy(std::string path, SDL_Renderer* screen)
     return ret;
 }
 
+//Thiết lập frame cho hoạt ảnh
 void Enemy::set_clipsEnemy()
 {
     if (width_frame_ > 0 && height_frame_ > 0)
@@ -77,6 +83,7 @@ void Enemy::set_clipsEnemy()
     }
 }
 
+//Vẽ quái lên màn hình
 void Enemy::ShowEnemy(SDL_Renderer* des, const SDL_Rect& camera)
 {
     rect_.x = enemy_x_ - camera.x;
@@ -102,6 +109,8 @@ void Enemy::ShowEnemy(SDL_Renderer* des, const SDL_Rect& camera)
     SDL_RenderCopy(des, p_object_, current_clip, &renderQuad);
 }
 
+
+//Hàm chọn vị trí spawn quái
 void Enemy::SpawnEnemies(std::vector<Enemy*>& enemies, SDL_Renderer* renderer, const SDL_Rect& camera, int spawn_count, int enemy_type) {
     for (int i = 0; i < spawn_count; ++i) {
         Enemy* new_enemy = nullptr;
@@ -126,7 +135,7 @@ void Enemy::SpawnEnemies(std::vector<Enemy*>& enemies, SDL_Renderer* renderer, c
             enemy_img_path = "img//bat.png";
         }
 
-        std::cout << "Spawned enemy type: " << enemy_type << " at (" << spawn_x << ", " << spawn_y << ")" << std::endl;
+        std::cout << i << ": "  << "Spawned enemy type: " << enemy_type << " at (" << spawn_x << ", " << spawn_y << ")" << std::endl;
 
         if (new_enemy->LoadImgEnemy(enemy_img_path, renderer)) {
             enemies.push_back(new_enemy);
@@ -137,6 +146,7 @@ void Enemy::SpawnEnemies(std::vector<Enemy*>& enemies, SDL_Renderer* renderer, c
     }
 }
 
+//Spawn quái
 void Enemy::UpdateSpawnEnemies(std::vector<Enemy*>& enemies, SDL_Renderer* renderer, Uint32& last_spawn_time, Uint32 spawn_delay, Uint32 start_time, const SDL_Rect& camera, int spawn_count, int enemy_type) {
     Uint32 current_time = SDL_GetTicks();
     Uint32 elapsed_time = (current_time - start_time) / 1000;
@@ -148,11 +158,13 @@ void Enemy::UpdateSpawnEnemies(std::vector<Enemy*>& enemies, SDL_Renderer* rende
     }
 }
 
+//Hàm quái nhận damage 
 void Enemy::TakeDamage(int dmg)
 {
     health_ -= dmg;
 }
 
+//Kiểm tra xem quái chết chưa
 bool Enemy::IsDead()
 {
     return health_ <= 0;

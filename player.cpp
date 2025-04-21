@@ -10,8 +10,8 @@
 player::player()
 {
 	frame_ = 0;
-	x_pos_ = 0;
-	y_pos_ = 0;
+	//x_pos_ = 0;
+	//y_pos_ = 0;
 	width_frame_ = 0;
 	height_frame_ = 0;
 	status_ = -1;
@@ -22,6 +22,7 @@ player::player()
 	}
 	player_dmg = 30;
 	health_player = 50;
+	current_health = health_player;
 }
 
 player::~player()
@@ -31,6 +32,7 @@ player::~player()
 
 SDL_Rect player::camera = { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT };
 
+//Load ảnh nhân vật
 bool player::LoadImg(std::string path, SDL_Renderer* screen)
 {
 	bool ret = BaseObject::LoadImg(path, screen);
@@ -43,6 +45,7 @@ bool player::LoadImg(std::string path, SDL_Renderer* screen)
 	return ret;
 }
 
+//lấy kích thước ảnh
 SDL_Rect player::GetRectFrame()
 {
 	SDL_Rect rect;
@@ -53,6 +56,7 @@ SDL_Rect player::GetRectFrame()
 	return rect;
 }
 
+//Thiết lập frame cho hoạt ảnh
 void player::set_clips()
 {
 	if (width_frame_ > 0 && height_frame_ > 0)
@@ -68,6 +72,8 @@ void player::set_clips()
 	}
 }
 
+
+//Show nhân vật lên màn hình
 void player::Show(SDL_Renderer* des)
 {
 	if (status_ == WALK_LEFT)
@@ -117,6 +123,7 @@ void player::Show(SDL_Renderer* des)
 
 }
 
+//xác định event từ bàn phím
 void player::HandleInputAction(SDL_Event events, SDL_Renderer* screen)
 {
 	if (events.type == SDL_KEYDOWN)
@@ -204,6 +211,7 @@ void player::HandleInputAction(SDL_Event events, SDL_Renderer* screen)
 	
 }
 
+//di chuyển nhân vật
 void player::DoPlayer()
 {
 	float dirX = 0.0f;
@@ -235,6 +243,7 @@ void player::DoPlayer()
 
 }
 
+//gắn camera theo nhân vật
 void player::UpdateCamera()
 {
 	camera.x = x_pos_ + width_frame_ / 2 - SCREEN_WIDTH / 2;
@@ -247,6 +256,7 @@ void player::UpdateCamera()
 	if (camera.y > MAX_Y - SCREEN_HEIGHT) camera.y = MAX_Y - SCREEN_HEIGHT;
 }
 
+//Băn đạn
 void player::HandleBullet(SDL_Renderer* des)
 {
 	for (int i = 0; i < p_bullet_list_.size(); i++)
@@ -275,6 +285,7 @@ void player::HandleBullet(SDL_Renderer* des)
 	}
 }
 
+//Xóa đạn
 void player::RemoveBullet(const int& ind)
 {
 	if (p_bullet_list_.size() > 0 && p_bullet_list_.size() > ind)
@@ -290,12 +301,38 @@ void player::RemoveBullet(const int& ind)
 	}
 }
 
+//nhân vật nhận damage
 void player::TakeDamage(int dmg)
 {
-	health_player -= dmg;
+	current_health -= dmg;
 }
 
+//kiểm tra xem nhận vật còn sống không
 bool player::IsDead()
 {
-	return health_player <= 0;
+	return current_health <= 0;
+}
+
+void player::reset()
+{
+	health_player = 50;
+}
+
+void player::RenderHeal(SDL_Renderer* render)
+{
+	int heal_x = SCREEN_WIDTH - 220;
+	int heal_y = 20;
+
+	int heal_width = 200;
+	int heal_height = 20;
+
+	SDL_Rect heal_rect = { heal_x, heal_y, heal_width, heal_height };
+	SDL_SetRenderDrawColor(render, 167, 175, 180, 255);
+	SDL_RenderFillRect(render, &heal_rect);
+
+	float hp_percent = static_cast<float> (current_health) / health_player;
+
+	SDL_Rect fill_health = { heal_x, heal_y, static_cast<int>(hp_percent * heal_width), heal_height };
+	SDL_SetRenderDrawColor(render, 255, 0, 0, 255);
+	SDL_RenderFillRect(render, &fill_health);
 }
