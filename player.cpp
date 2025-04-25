@@ -116,7 +116,7 @@ void player::Show(SDL_Renderer* des)
 	rect_.y = y_pos_ - camera.y;
 
 	SDL_Rect* current_clip = &frame_clip_[frame_];
-
+	
 	SDL_Rect renderQuad = { rect_.x, rect_.y, width_frame_, height_frame_ };
 
 	SDL_RenderCopy(des, p_object_, current_clip, &renderQuad);
@@ -188,6 +188,13 @@ void player::HandleInputAction(SDL_Event events, SDL_Renderer* screen)
 		}
 		break;
 		case SDLK_1:
+			Mix_Chunk* magic_shoot = Mix_LoadWAV("assets//Audio//shoot.mp3");
+			if (!magic_shoot)
+			{
+				std::cout << "Failed to load shoot music! SDL_mixer Error: " << Mix_GetError() << std::endl;
+				return;
+			}
+			Mix_PlayChannel(-1, magic_shoot, 0);
 			Bullet* p_bullet = new Bullet();
 			p_bullet->LoadImg("img//bullet.png", screen);
 
@@ -315,7 +322,8 @@ bool player::IsDead()
 
 void player::reset()
 {
-	health_player = 50;
+	current_health = health_player;
+	p_bullet_list_.clear();
 }
 
 void player::RenderHeal(SDL_Renderer* render)

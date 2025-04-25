@@ -86,7 +86,7 @@ private:
 	int player_dmg;
 
 	Uint32 lastHitTime = 0;
-	const Uint32 invincibleDuration = 5000;
+	const Uint32 invincibleDuration = 2000;
 
 };
 

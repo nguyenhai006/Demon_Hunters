@@ -111,8 +111,11 @@ void Enemy::ShowEnemy(SDL_Renderer* des, const SDL_Rect& camera)
 
 
 //Hàm chọn vị trí spawn quái
-void Enemy::SpawnEnemies(std::vector<Enemy*>& enemies, SDL_Renderer* renderer, const SDL_Rect& camera, int spawn_count, int enemy_type) {
-    for (int i = 0; i < spawn_count; ++i) {
+void Enemy::SpawnEnemies(std::vector<Enemy*>& enemies, SDL_Renderer* renderer, const SDL_Rect& camera, int spawn_count, int enemy_type)
+{
+    for (int i = 0; i < spawn_count; ++i)
+    {
+        if(enemies.size() >= 25) break;
         Enemy* new_enemy = nullptr;
 
         if (enemy_type == 0) {
@@ -135,7 +138,7 @@ void Enemy::SpawnEnemies(std::vector<Enemy*>& enemies, SDL_Renderer* renderer, c
             enemy_img_path = "img//bat.png";
         }
 
-        std::cout << i << ": "  << "Spawned enemy type: " << enemy_type << " at (" << spawn_x << ", " << spawn_y << ")" << std::endl;
+        std::cout << enemies.size() << ": "  << "Spawned enemy type: " << enemy_type << " at (" << spawn_x << ", " << spawn_y << ")" << std::endl;
 
         if (new_enemy->LoadImgEnemy(enemy_img_path, renderer)) {
             enemies.push_back(new_enemy);
@@ -147,11 +150,9 @@ void Enemy::SpawnEnemies(std::vector<Enemy*>& enemies, SDL_Renderer* renderer, c
 }
 
 //Spawn quái
-void Enemy::UpdateSpawnEnemies(std::vector<Enemy*>& enemies, SDL_Renderer* renderer, Uint32& last_spawn_time, Uint32 spawn_delay, Uint32 start_time, const SDL_Rect& camera, int spawn_count, int enemy_type) {
-    Uint32 current_time = SDL_GetTicks();
-    Uint32 elapsed_time = (current_time - start_time) / 1000;
-
-    spawn_count = 5 + elapsed_time / 180000;            //cứ sau 3' thì tăng lượng quái spawn lên            
+void Enemy::UpdateSpawnEnemies(std::vector<Enemy*>& enemies, SDL_Renderer* renderer, Uint32& last_spawn_time, Uint32 spawn_delay, Uint32 start_time, const SDL_Rect& camera, int spawn_count, int enemy_type)
+{
+    Uint32 current_time = SDL_GetTicks();           
     if (current_time > last_spawn_time + spawn_delay) {
         SpawnEnemies(enemies, renderer,camera, spawn_count, enemy_type);
         last_spawn_time = current_time;
