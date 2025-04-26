@@ -28,23 +28,19 @@ Bạn vào vai Kael, một thợ săn quỷ lang thang, người duy nhất còn
 
 ## Các nhân vật trong game trong game
 
-|---------------------------------------|--------------|---------------------------|
 | Nhân vật game                         | Tên nhân vật | Thông số cơ bản           |
 |---------------------------------------|--------------|---------------------------| 
-| ![Nhân vật chính](img/charactor.png)  |     Kael     | Máu: 50                   |
-|                                       |              | Sát thương: 10            |
+|                                       |              | Máu: 50                   |
+| ![Nhân vật chính](img/charactor.png)  |     Kael     | Sát thương: 10            |
 |                                       |              | Tốc độ di chuyển: 30      | 
-|---------------------------------------|--------------|---------------------------|
-|                                       |     Slime    | Máu: 15                   |
-| ![Slime](img/img_slime.png)           |              | Sát thương: 10            |
+|                                       |              | Máu: 15                   |
+| ![Slime](img/img_slime.png)           |     Slime    | Sát thương: 10            |
 |                                       |              | Tốc độ di chuyển: 7       |
 |                                       |              | Thời gian spawn: Từ đầu   |
-|---------------------------------------|--------------|---------------------------|
-|                                       |      bat     | Máu: 25                   |
+|                                       |              | Máu: 25                   |
 |                                       |              | Sát thương: 15            |
-| [Bat](img/img_bat.png)                |              | Tốc độ di chuyển: 15      |
+| [Bat](img/img_bat.png)                |      bat     | Tốc độ di chuyển: 15      |
 |                                       |              | Thời gian spawn: Sau 3'   |
-|---------------------------------------|--------------|---------------------------|
 
 ---
 
