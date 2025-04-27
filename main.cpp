@@ -54,7 +54,6 @@
 
 	Uint32 frameStart;
 	Uint32 frameTime;
-	Uint32 lastTime = SDL_GetTicks();
 
 	srand(static_cast<unsigned int>(time(0)));						//mỗi lần chạy là ra 1 giá trị rand khác nhau
 
@@ -201,6 +200,8 @@
 							p_player.SetlastHitTime(now);
 							if (p_player.IsDead())
 							{
+								Mix_Chunk* lose = Mix_LoadWAV("assets//Audio//game_over.mp3");
+								Mix_PlayChannel(-1, lose, 0);
 								restart = true;
 								ShownLose();
 								game_over = true;
