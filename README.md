@@ -6,9 +6,9 @@ Một tựa game hành động sinh tồn đánh quái, tiêu diệt quái vật
 
 - [Giới thiệu game](#giới-thiệu-game)
 -  [Cốt truyện](#cốt-truyện)
-   1. [1. Thế giới](#thế-giới)
-   2. [2. Bối cảnh](#bối-cảnh)
-   3. [3. Nhiệm vụ](#nhiệm-vụ)
+   1. [Thế giới](#thế-giới)
+   2. [Bối cảnh](#bối-cảnh)
+   3. [Nhiệm vụ](#nhiệm-vụ)
 - [Bắt đầu game](#bắt-đầu-game)
 - [Các nhân vật trong game](#các-nhân-vật-trong-game)
 - [Gameplay](#gameplay)
@@ -40,7 +40,7 @@ Nhưng thời gian trôi qua, con người dần quên đi những lời cảnh 
 
 ---
 
-## Các nhân vật trong trong game
+## Các nhân vật trong game
 
 | Nhân vật game                         | Tên nhân vật | Thông số cơ bản           |
 |---------------------------------------|--------------|---------------------------| 
