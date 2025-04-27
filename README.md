@@ -62,7 +62,7 @@ Bạn vào vai Kael, một thợ săn quỷ lang thang, người duy nhất còn
 (Màn hình hiển thị lúc chiến thắng)
 
 - Bạn sẽ thua cuộc nếu bị quái giết trong vòng 20'
-- 
+
 ![Thất bại](img/lose_img.png)  <!-- Thêm ảnh thất bại -->
 
 (Màn hình hiển thị lúc thua cuộc)
