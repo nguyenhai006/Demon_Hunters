@@ -26,7 +26,7 @@ Nhưng thời gian trôi qua, con người dần quên đi những lời cảnh 
 
 - Sau khi vào màn chơi sẽ hiện giao diện trò chơi
 
-![Giao diện](img/basic_map.png)  <!-- Thêm ảnh menu chính -->
+![Giao diện](img/basic_map1.png)  <!-- Thêm ảnh menu chính -->
 
 ---
 
