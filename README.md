@@ -45,11 +45,10 @@ Bạn vào vai Kael, một thợ săn quỷ lang thang, người duy nhất còn
 ---
 
 ## 🎮 Gameplay
-
 - Người chơi bấm các phím mũi tên để di chuyển theo các hướng
- ![Tutorial](img/tutorial1.png) <!-- Thêm ảnh tutorial -->
-
 - Người chơi bấm phím 1 để bắn đạn
+
+![Tutorial](img/tutorial1.png) <!-- Thêm ảnh tutorial -->
 ---
 
 
