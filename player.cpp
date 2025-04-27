@@ -10,8 +10,6 @@
 player::player()
 {
 	frame_ = 0;
-	//x_pos_ = 0;
-	//y_pos_ = 0;
 	width_frame_ = 0;
 	height_frame_ = 0;
 	status_ = -1;
@@ -20,7 +18,6 @@ player::player()
 	{
 		frame_clip_[i] = { 0,0,0,0 };
 	}
-	player_dmg = 30;
 	health_player = 50;
 	current_health = health_player;
 }

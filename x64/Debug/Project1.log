@@ -1,8 +1,19 @@
-﻿  Enemy.cpp
-D:\Project1\Project1\Enemy.cpp(58,22): warning C4566: character represented by universal-character-name '\u1ED7' cannot be represented in the current code page (1252)
-D:\Project1\Project1\Enemy.cpp(58,22): warning C4566: character represented by universal-character-name '\u1EA3' cannot be represented in the current code page (1252)
-D:\Project1\Project1\Enemy.cpp(89,24): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-D:\Project1\Project1\Enemy.cpp(90,24): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-D:\Project1\Project1\Enemy.cpp(130,32): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
-D:\Project1\Project1\Enemy.cpp(131,32): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
+﻿  Game_map.cpp
+  main.cpp
+D:\Project1\Project1\main.cpp(81,10): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+D:\Project1\Project1\main.cpp(82,10): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+D:\Project1\Project1\main.cpp(161,22): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\Project1\Project1\main.cpp(433,10): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+D:\Project1\Project1\main.cpp(434,10): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  player.cpp
+D:\Project1\Project1\player.cpp(113,19): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Project1\Project1\player.cpp(114,19): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Project1\Project1\player.cpp(199,64): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
+D:\Project1\Project1\player.cpp(207,24): warning C4244: 'argument': conversion from 'float' to 'const int', possible loss of data
+D:\Project1\Project1\player.cpp(208,24): warning C4244: 'argument': conversion from 'float' to 'const int', possible loss of data
+D:\Project1\Project1\player.cpp(245,52): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Project1\Project1\player.cpp(246,53): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\Project1\Project1\player.cpp(254,39): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Project1\Project1\player.cpp(255,40): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  Generating Code...
   Project1.vcxproj -> D:\Project1\x64\Debug\Project1.exe

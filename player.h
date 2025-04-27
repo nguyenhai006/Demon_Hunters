@@ -76,14 +76,13 @@ private:
 	SDL_Rect frame_clip_[animIndex];
 	Input input_type_;
 	int frame_;
+
 	int status_;
 
 	float angle_;   //góc đạn bắn
 
-	int health_player;			//máu người chơi
-	int current_health;
-
-	int player_dmg;
+	int health_player;			//máu tối đa người chơi
+	int current_health;			//máu người chơi hiện tại
 
 	Uint32 lastHitTime = 0;
 	const Uint32 invincibleDuration = 2000;
