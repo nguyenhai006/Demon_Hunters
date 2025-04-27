@@ -31,15 +31,15 @@ Bạn vào vai Kael, một thợ săn quỷ lang thang, người duy nhất còn
 | Nhân vật game                         | Tên nhân vật | Thông số cơ bản           |
 |---------------------------------------|--------------|---------------------------| 
 |                                       |              | Máu: 50                   |
-| ![Nhân vật chính](img/charactor.png)  |     Kael     | Sát thương: 10            |
+| ![Nhân vật chính](img/charactor1.png)  |     Kael     | Sát thương: 10            |
 |                                       |              | Tốc độ di chuyển: 30      | 
 |                                       |              | Máu: 15                   |
-| ![Slime](img/img_slime.png)           |     Slime    | Sát thương: 10            |
+| ![Slime](img/img_slime1.png)           |     Slime    | Sát thương: 10            |
 |                                       |              | Tốc độ di chuyển: 7       |
 |                                       |              | Thời gian spawn: Từ đầu   |
 |                                       |              | Máu: 25                   |
 |                                       |              | Sát thương: 15            |
-| ![Bat](img/img_bat.png)               |      bat     | Tốc độ di chuyển: 15      |
+| ![Bat](img/img_bat1.png)               |      bat     | Tốc độ di chuyển: 15      |
 |                                       |              | Thời gian spawn: Sau 3'   |
 
 ---
