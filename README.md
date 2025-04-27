@@ -2,6 +2,8 @@
 ---
 # Giới thiệu game
 
+[Vid giới thiệu game](https://drive.google.com/drive/folders/1hHor7tp_oyjFx-xkEQmQI4nr6GU1d2MR?fbclid=IwZXh0bgNhZW0CMTAAAR0CLSlJK8SzB5F23DiElNriUz824uk_FNH2zNAtdxXy3PnZ1QPop65A3HM_aem_oOMvcNXfEoeVj4aqApYsGw)
+
 Một tựa game hành động sinh tồn đánh quái, tiêu diệt quái vật trong rừng tối.
 
 - [Giới thiệu game](#giới-thiệu-game)
@@ -13,6 +15,7 @@ Một tựa game hành động sinh tồn đánh quái, tiêu diệt quái vật
 - [Các nhân vật trong game](#các-nhân-vật-trong-game)
 - [Gameplay](#gameplay)
 - [Chiến thắng và thất bại](#chiến-thắng-và-thất-bại)
+- [Các tính năng dự kiến trong tương lai](#một-số-tính-năng-có-thể-update)
 
 ---
 
@@ -79,3 +82,12 @@ Nhưng thời gian trôi qua, con người dần quên đi những lời cảnh 
 ![Thất bại](img/lose_img.png)  <!-- Thêm ảnh thất bại -->
 
 (Màn hình hiển thị lúc thua cuộc)
+
+## Một số tính năng có thể update
+- Người chơi có thêm điểm kinh nghiệm sau khi giết quái và nâng cấp
+- Khi nâng cấp đạn bắn sát thương cao hơn và nhiều đạn hơn
+- Quái spawn tăng dần theo thời gian
+- Quái trâu hơn theo thời gian
+## Reference
+- Sprites sources: https://itch.io/
+- Sounds sources: https://pixabay.com/sound-effects/
