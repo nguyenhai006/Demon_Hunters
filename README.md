@@ -6,9 +6,9 @@ Một tựa game hành động sinh tồn đánh quái, tiêu diệt quái vật
 
 - [Giới thiệu game](#giới-thiệu-game)
 -  [Cốt truyện](#cốt-truyện)
-   1. [Thế giới](1thế-giới)
-   2. [Bối cảnh](2bối-cảnh)
-   3. [Nhiệm vụ](3nhiệm-vụ)
+   1. [1. Thế giới](#thế-giới)
+   2. [2. Bối cảnh](#bối-cảnh)
+   3. [3. Nhiệm vụ](#nhiệm-vụ)
 - [Bắt đầu game](#bắt-đầu-game)
 - [Các nhân vật trong game](#các-nhân-vật-trong-game)
 - [Gameplay](#gameplay)
@@ -40,7 +40,7 @@ Nhưng thời gian trôi qua, con người dần quên đi những lời cảnh 
 
 ---
 
-## Các nhân vật trong game trong game
+## Các nhân vật trong trong game
 
 | Nhân vật game                         | Tên nhân vật | Thông số cơ bản           |
 |---------------------------------------|--------------|---------------------------| 
@@ -58,7 +58,7 @@ Nhưng thời gian trôi qua, con người dần quên đi những lời cảnh 
 
 ---
 
-## 🎮 Gameplay
+## Gameplay
 - Người chơi bấm các phím mũi tên để di chuyển theo các hướng
 - Người chơi bấm phím 1 để bắn đạn
 
@@ -66,7 +66,7 @@ Nhưng thời gian trôi qua, con người dần quên đi những lời cảnh 
 ---
 
 
-## 🏆 Chiến thắng và thất bại
+## Chiến thắng và thất bại
 
 - Bạn sẽ chiến thắng nếu sống sót trông 20'
 
