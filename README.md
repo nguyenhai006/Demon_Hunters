@@ -6,9 +6,9 @@ Một tựa game hành động sinh tồn đánh quái, tiêu diệt quái vật
 
 - [Giới thiệu game](#giới-thiệu-game)
 -  [Cốt truyện](#cốt-truyện)
-   1. [Thế giới](#thế-giới)
-   2. [Bối cảnh](#bối-cảnh)
-   3. [Nhiệm vụ](#nhiệm-vụ)
+   1. [Thế giới](1thế-giới)
+   2. [Bối cảnh](2bối-cảnh)
+   3. [Nhiệm vụ](3nhiệm-vụ)
 - [Bắt đầu game](#bắt-đầu-game)
 - [Các nhân vật trong game](#các-nhân-vật-trong-game)
 - [Gameplay](#gameplay)
