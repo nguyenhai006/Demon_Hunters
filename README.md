@@ -4,6 +4,16 @@
 
 Một tựa game hành động sinh tồn đánh quái, tiêu diệt quái vật trong rừng tối.
 
+1. [Giới thiệu game](#giới-thiệu-game)
+2. [Cốt truyện](#cốt-truyện)
+   - [Thế giới](#thế-giới)
+   - [Bối cảnh](#bối-cảnh)
+   - [Nhiệm vụ](#nhiệm-vụ)
+3. [Bắt đầu game](#bắt-đầu-game)
+4. [Các nhân vật trong game](#các-nhân-vật-trong-game)
+5. [Gameplay](#gameplay)
+6. [Chiến thắng và thất bại](#chiến-thắng-và-thất-bại)
+
 ---
 
 ## Cốt truyện
