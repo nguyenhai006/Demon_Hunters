@@ -16,6 +16,7 @@ Một tựa game hành động sinh tồn đánh quái, tiêu diệt quái vật
 - [Gameplay](#gameplay)
 - [Chiến thắng và thất bại](#chiến-thắng-và-thất-bại)
 - [Các tính năng dự kiến trong tương lai](#một-số-tính-năng-có-thể-update)
+- [Reference](#Reference)
 
 ---
 
