@@ -6,9 +6,9 @@ Một tựa game hành động sinh tồn đánh quái, tiêu diệt quái vật
 
 - [Giới thiệu game](#giới-thiệu-game)
 -  [Cốt truyện](#cốt-truyện)
-   1. [Thế giới](#thế-giới)
-   2. [Bối cảnh](#bối-cảnh)
-   3. [Nhiệm vụ](#nhiệm-vụ)
+   - [Thế giới](#thế-giới)
+   - [Bối cảnh](#bối-cảnh)
+   - [Nhiệm vụ](#nhiệm-vụ)
 - [Bắt đầu game](#bắt-đầu-game)
 - [Các nhân vật trong game](#các-nhân-vật-trong-game)
 - [Gameplay](#gameplay)
@@ -17,14 +17,14 @@ Một tựa game hành động sinh tồn đánh quái, tiêu diệt quái vật
 ---
 
 ## Cốt truyện
-### 1. Thế giới
+### Thế giới
 - Từ hàng ngàn năm trước, thế giới từng bị thống trị bởi lũ quỷ dữ đến từ "Vực Sâu Vĩnh Hằng". Các vị Thần cổ xưa đã phong ấn chúng bằng một nghi lễ cấm kỵ, chôn vùi chúng dưới lòng đất.
 Nhưng thời gian trôi qua, con người dần quên đi những lời cảnh báo cổ xưa… Cho đến khi ấn phong bị phá vỡ.
 ---
-### 2. Bối cảnh
+### Bối cảnh
 - Bạn vào vai Kael, một thợ săn quỷ lang thang, người duy nhất còn mang trong mình dòng máu của Đại pháp sư. Sau khi quê hương bị lũ quỷ tàn phá trong một đêm trăng máu, Kael thề sẽ săn lùng và tiêu diệt toàn bộ đám quái vật từ vực sâu.Lần theo dấu vết máu và tàn tro, bạn bước vào Darkwood, mảnh đất đã bị nguyền rủa – nơi những linh hồn, xác sống và quỷ dữ ngày đêm gào thét. Sau một thời gian săn lùng và tìm kiếm các manh mối về lũ quỷ Kael dần phát hiện ra: để phong ấn lũ quỷ mãi mãi, người thực hiện nghi lễ sẽ phải hy sinh bản thân. Liệu bạn sẽ hoàn thành sứ mệnh… hay bị bóng tối nuốt chửng?
 ---
-### 3. 🔥 Nhiệm vụ
+### Nhiệm vụ
 - Sống sót qua các đợt tấn công của quái vật
 - Tiêu diệt những con quái vật bị nguyền rủa
 
