@@ -8,11 +8,11 @@ Một tựa game hành động sinh tồn đánh quái, tiêu diệt quái vật
 
 ## Cốt truyện
 1. Thế giới
-Từ hàng ngàn năm trước, thế giới từng bị thống trị bởi lũ quỷ dữ đến từ "Vực Sâu Vĩnh Hằng". Các vị Thần cổ xưa đã phong ấn chúng bằng một nghi lễ cấm kỵ, chôn vùi chúng dưới lòng đất.
+- Từ hàng ngàn năm trước, thế giới từng bị thống trị bởi lũ quỷ dữ đến từ "Vực Sâu Vĩnh Hằng". Các vị Thần cổ xưa đã phong ấn chúng bằng một nghi lễ cấm kỵ, chôn vùi chúng dưới lòng đất.
 Nhưng thời gian trôi qua, con người dần quên đi những lời cảnh báo cổ xưa… Cho đến khi ấn phong bị phá vỡ.
 ---
 2. Bối cảnh
-Bạn vào vai Kael, một thợ săn quỷ lang thang, người duy nhất còn mang trong mình dòng máu của Đại pháp sư. Sau khi quê hương bị lũ quỷ tàn phá trong một đêm trăng máu, Kael thề sẽ săn lùng và tiêu diệt toàn bộ đám quái vật từ vực sâu.Lần theo dấu vết máu và tàn tro, bạn bước vào Darkwood, mảnh đất đã bị nguyền rủa – nơi những linh hồn, xác sống và quỷ dữ ngày đêm gào thét. Sau một thời gian săn lùng và tìm kiếm các manh mối về lũ quỷ Kael dần phát hiện ra: để phong ấn lũ quỷ mãi mãi, người thực hiện nghi lễ sẽ phải hy sinh bản thân. Liệu bạn sẽ hoàn thành sứ mệnh… hay bị bóng tối nuốt chửng?
+- Bạn vào vai Kael, một thợ săn quỷ lang thang, người duy nhất còn mang trong mình dòng máu của Đại pháp sư. Sau khi quê hương bị lũ quỷ tàn phá trong một đêm trăng máu, Kael thề sẽ săn lùng và tiêu diệt toàn bộ đám quái vật từ vực sâu.Lần theo dấu vết máu và tàn tro, bạn bước vào Darkwood, mảnh đất đã bị nguyền rủa – nơi những linh hồn, xác sống và quỷ dữ ngày đêm gào thét. Sau một thời gian săn lùng và tìm kiếm các manh mối về lũ quỷ Kael dần phát hiện ra: để phong ấn lũ quỷ mãi mãi, người thực hiện nghi lễ sẽ phải hy sinh bản thân. Liệu bạn sẽ hoàn thành sứ mệnh… hay bị bóng tối nuốt chửng?
 ---
 3. 🔥 Nhiệm vụ
 - Sống sót qua các đợt tấn công của quái vật
@@ -23,6 +23,10 @@ Bạn vào vai Kael, một thợ săn quỷ lang thang, người duy nhất còn
 - Người chơi bấm phím space để bắt đầu chơi
 
 ![Menu chính](img/game_start.png)  <!-- Thêm ảnh menu chính -->
+
+- Sau khi vào màn chơi sẽ hiện giao diện trò chơi
+
+![Giao diện](img/basic_map.png)  <!-- Thêm ảnh menu chính -->
 
 ---
 
